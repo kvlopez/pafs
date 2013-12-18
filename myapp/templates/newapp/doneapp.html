@@ -1,0 +1,215 @@
+<html>
+<body>
+
+{% extends "newapp/vbase_sites.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard_two.css' %}" />{% endblock %}
+
+
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+
+
+<div id="content">
+	
+
+</div>
+
+<div id="logos">
+<img src="/static/admin/img/formlogos.jpg" width="1100" /> 
+</div>
+
+ 
+
+<form action="" method="POST">
+{% csrf_token %} 
+<h2><i>Please review provided information before submitting</i></h2>
+<div id="formpi" >
+	<div class="titlepi">
+		<p>&nbsp;&nbsp;Personal Information</p>
+	</div>	
+	
+		<table>
+			<tr>
+				<th>&nbsp;&nbsp;Last Name</th>
+				<td>&nbsp;&nbsp;{{ appform.last_name }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;First Name</th>
+				<td>&nbsp;&nbsp;{{ appform.first_name }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Middle Name</th>
+				<td>&nbsp;&nbsp;{{ appform.middle_name }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Birthdate</th>
+				<td>&nbsp;&nbsp;{{ appform.birth_date }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Age</th>
+				<td>&nbsp;&nbsp;{{ appform.page }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Birthplace</th>
+				<td>&nbsp;&nbsp;{{ appform.birth_place }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Sex</th>
+				<td>&nbsp;&nbsp;{{ appform.sex }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Civil Status</th>
+				<td>&nbsp;&nbsp;{{ appform.civil_status }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Residence Address</th>
+				<td>&nbsp;&nbsp;{{ appform.residence_address }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Nationality</th>
+				<td>&nbsp;&nbsp;{{ appform.nationality }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Contact Number(s)</th>
+				<td>&nbsp;&nbsp;{{ appform.contact_number }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;SSS/GSIS Number</th>
+				<td>&nbsp;&nbsp;{{ appform.sss_gsis }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Tax Identification Number(TIN)</th>
+				<td>&nbsp;&nbsp;{{ appform.tin }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Name of Employer/Association/Creditor</th>
+				<td>&nbsp;&nbsp;{{ appform.name_eac }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Occupation/Position</th>
+				<td>&nbsp;&nbsp;{{ appform.occup_position }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Date of Employment/Membership/Loan Approval</th>
+				<td>&nbsp;&nbsp;{{ appform.date_empmem }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Term of Loan (If Group Credit Life)</th>
+				<td>&nbsp;&nbsp;{{ appform.term_loan }} {{ appform.term_loan_d }} (s)</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Amount of Load (If Group Credit Life)</th>
+				<td>&nbsp;&nbsp;{{ appform.amount_loan }}  {{ appform.currency }}</td>
+			</tr>
+		
+	</div>
+		</table>
+	<div class ="formsh">
+	<div class="titlepi">
+		<p>&nbsp;&nbsp;Statement of Health</p>
+	</div>
+		<table>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Reason for Submission of Statement of Health</th>
+				<td>&nbsp;&nbsp;{{ appform.reason }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Height</th>
+				<td>&nbsp;&nbsp;{{ appform.height }} ft</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;Weight</th>
+				<td>&nbsp;&nbsp;{{ appform.weight }} kg</td>
+			</tr>
+		</table>
+		</div>
+	<div class="titleq">
+		<p>&nbsp;&nbsp;General Health Information</p>
+	</div>
+		<table>
+			<tr align="left">
+				<th>&nbsp;&nbsp;1. Are you actively at work performing your daily normal
+					chores of life on a regular, full-time basis?</th>
+				<td>&nbsp;&nbsp;{{ appform.question1 }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;2. Are you in good health, both physically and mentally?</th>
+				<td>&nbsp;&nbsp;{{ appform.question2 }}</td>
+			</tr>
+		</table>
+	<div class="titleq">
+		<p>&nbsp;&nbsp;Personal Health Information</p>
+	</div>
+		<table>
+			<tr align="left">
+				<th>&nbsp;&nbsp;3. Have you ever had any policy or application for Life,
+					Accident, Disability, Dreaded Diseases, Sickness, or
+					Health Insurance that has been declined, posyponed, modified,
+					rated, cancelled or rejected; or was refused for renewal?</th>
+				<td>&nbsp;&nbsp;{{ appform.question3 }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;4. Do you have any deformity, impairment of sight, hearing,
+					or loss of any body part of other physical defects?</th>
+				<td>&nbsp;&nbsp;{{ appform.question4 }}</td>
+			</tr>
+			<tr>
+				<th>
+					&nbsp;&nbsp;5. Have you during the past 5 years:
+				</th>
+				<td></td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;&nbsp;a. Had any injury, ailment, or disease?</th>
+				<td>&nbsp;&nbsp;{{ appform.question5a }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;&nbsp;b. Consulted or been treated by any physician or medical practitioner?</th>
+				<td>&nbsp;&nbsp;{{ appform.question5b }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;&nbsp;c. Had any surgical operation?</th>
+				<td>&nbsp;&nbsp;{{ appform.question5c }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;&nbsp;d. Had any medical examination or check-up?</th>
+				<td>&nbsp;&nbsp;{{ appform.question5d }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;&nbsp;6. Have you ever been confined in any Hospital,
+					Clinic, or similar institution?</th>
+				<td>&nbsp;&nbsp;{{ appform.question6 }}</td>
+			</tr>
+		</table>
+
+				<div id ="buttonposi">
+					<a href=""><input type="button" value="Cancel" /></a>
+					<a href="{% url 'updateapp' id %}"><input type="button" value="Update" /></a>
+					<a href="{% url 'submitform' id %}"><input type="button" value="Submit" /></a>
+				</div>
+
+</div>	
+
+<!--	<input type="submit" value="Cancel" id="id_cancel" /> -->
+<!--	<input type="submit" value="Update" id="id_update" /> -->
+<!--	<input type="submit" value="Submit" id="id_submit" /> -->
+</div>
+</form>	
+
+  </div>
+</form> 
+{% csrf_token %}
+</body>
+</html>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

@@ -1,0 +1,601 @@
+{% extends "newapp/cbase_sites.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard_two.css' %}" />{% endblock %}
+
+
+<link rel="stylesheet" type="text/css" href="/media/admin/css/widgets.css"/>
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+{% block data_container %}
+
+<div id="content">
+	<img src="/static/admin/img/formlogos.jpg" width="1500" /> 
+	<div id="branding">
+</div>
+</div>
+
+
+<form method="POST" action=""> 
+{% csrf_token %} 
+
+<div id="formpi">
+<div class="titlepi">
+<p>&nbsp;&nbsp;Personal Information</p>
+</div>	
+	<fieldset>
+		
+		
+		<table>
+			<tr align="left">
+				<td>*Form No:</td>
+				<td>{{ form.form_no }}</td>
+			</tr>
+			<tr align="left">
+		
+				<td>*Last Name:</td>
+				<td colspan="3">{{ form.last_name }}</td>
+
+				<td>*First Name:</td>
+				<td colspan="3">{{ form.first_name }}</td>
+
+				<td colspan="2">*Middle Name:</td>
+				<td colspan="3">{{ form.middle_name }}</td>
+
+			</tr>
+			<tr align="left">
+				<td>*Birthdate</td>
+				<td colspan="3">{{ form.birth_date }}</td>
+
+				<td>*Birthplace:</td>
+				<td >{{ form.birth_place }}</td>
+				<td>*Age:</td>
+				<td>{{ form.page }}</td>
+				<td>*Sex:</td>
+				<td>{{ form.sex }}</td>
+				<td>*Civil Status:</td>
+				<td>{{ form.civil_status }}</td>
+
+			</tr>
+			<tr align="left">
+				<td colspan="2">*Residence Address:</td>
+
+				<td colspan="6">{{ form.residence_address }}</td>
+
+				<td colspan="2">*Nationality</td>
+
+				<td colspan="3">{{ form.nationality }}</td>
+	
+			</tr>
+			<tr align="left">
+				<td>*Contact Number(s):</td>
+				<td colspan="3">{{ form.contact_number }}</td>
+
+				<td>*SSS/GSIS Number:</td>
+				<td colspan="3">{{ form.sss_gsis }}</td>
+	
+				<td colspan="2">*Tax Identification Number:</td>
+				<td colspan="3">{{ form.tin }}</td>
+	
+			</tr>
+			<tr align="left">
+				<td colspan="2">*Name of Employer/Association/Creditor:</td>
+
+				<td colspan="6">{{ form.name_eac }}</td>
+
+				<td colspan="2">*Occupation/Position:</td>
+				<td colspan="3">{{ form.occup_position }}</td>
+
+		
+				
+			</tr>
+			<tr align="left">
+				<td colspan="3">*Date of Employment/Membership/Loan Appoval:</td>
+
+				<td colspan="2"> {{ form.date_empmem }}</td>
+
+				<td> *Term of Loan (If Group Credit Life): </td>
+				<td> {{ form.term_loan }} </td>
+				<td>  {{ form.term_loan_d }}</td>
+				<td>*Amount of Loan (If Group Credit Life):</td>
+				<td></td>
+				<td>{{ form.amount_loan }}</td>
+				<td> {{ form.currency }}</td>
+				<td> </td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			</table>
+	</fieldset>
+</div>
+<div id="formsh">	
+<div class="titlepi">
+<p>&nbsp;&nbsp;Statement of Health</p>
+</div>	
+	<fieldset>
+			<table>
+			<tr align="left">
+				<td>*Reason for Submission of Statement of Health:</td>
+				<td >{{ form.reason }}</td>
+				<td>*Height:</td>
+				<td>{{ form.height }} ft</td>
+			</tr>
+			<tr align="left">
+				<td>*Please Specify:</td>
+				<td >{{ form.reason_details }}	
+				</td>
+				<td>*Weight:</td>
+				<td>{{ form.weight }} kg</td>
+			</tr>
+		</table>
+	</fieldset>
+</div>
+<div id="formghi">
+<div class="titleq">
+<p>&nbsp;&nbsp;General Health Information</p>
+</div>		
+	<fieldset>
+			<table>
+				<tr>
+					<td>
+					1. Are you actively at work performing your daily normal
+					chores of life on a regular, full-time basis?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question1" value="Yes" id="qy1" onClick="javascript:yesnoCheck1();">Yes     
+						<input type="radio" name="question1" value="No" id="qn1" onClick="javascript:yesnoCheck1();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q1" style="display:none">
+					<font color="red"></font>
+					<i>Please provide full details*</i>
+					<br />{{ form.detail_q1 }}	
+					</div></td>
+				
+				</tr>
+				<tr>
+					<td>
+					2. Are you in good health, both physically and mentally?
+					</td>
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question2" value="Yes" id="qy2" onClick="javascript:yesnoCheck2();">Yes     
+						<input type="radio" name="question2" value="No" id="qn2" onClick="javascript:yesnoCheck2();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q2" style="display:none">
+					<font color="red"></font>
+					<i>Please provide full details*</i>
+					<br />{{ form.detail_q2 }}	
+					</div></td>
+				
+				</tr>
+			</table>
+	</fieldset>
+</div>
+<div id="formphi">
+<div class="titleq">
+<p>&nbsp;&nbsp;Personal Health Information</p>
+</div>		
+	<fieldset>
+			<table>
+				<tr>
+					<td>
+					3. Have you ever had any policy or application for Life,
+					Accident, Disability, Dreaded Diseases, Sickness, or
+					Health Insurance that has been declined, postponed, modified,
+					rated, cancelled or rejected; or was refused for renewal?
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question3" value="Yes" id="qy3" onClick="javascript:yesnoCheck3();">Yes     
+						<input type="radio" name="question3" value="No" id="qn3" onClick="javascript:yesnoCheck3();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q3" style="display:none">
+					<font color="red"></font>
+					<i>Please provide full details*</i>
+					<br />
+					<table border="2">
+						<tr>
+							<td>Date of Application</td>
+							<td>Insurance Company</td>
+							<td>Policy Amount</td>
+							<td>Reason for Refusal/Postponement/Rating</td>
+						</tr>
+						<tr>
+							<td> {{ form.date_apply }} </td>
+							<td> {{ form.insurance_comp }} </td>
+							<td> {{ form.policy_amt }} </td>
+							<td> {{ form.reason_rpr }} </td>
+						</tr>
+					</table>
+					</div></td>
+				
+				</tr>
+				<tr>
+					<td>
+					4. Do you have any deformity, impairment of sight, hearing,
+					or loss of any body part of other physical defects?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question4" value="Yes" id="qy4" onClick="javascript:yesnoCheck4();">Yes     
+						<input type="radio" name="question4" value="No" id="qn4" onClick="javascript:yesnoCheck4();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q4" style="display:none">
+					<font color="red"></font>
+					<i>Please provide full details*</i>
+					<br />{{ form.detail_q4 }}	
+					</div></td>
+				
+				</tr>
+					<td>
+					5. Have you during the past 5 years:
+					</td>
+				</tr>
+				<tr>
+					<td>
+					a. Had any injury, ailment, or disease?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question5a" value="Yes" id="qy5a" onClick="javascript:yesnoCheck5a();">Yes     
+						<input type="radio" name="question5a" value="No" id="qn5a" onClick="javascript:yesnoCheck5a();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q5a" style="display:none">
+					<font color="red"></font>
+					
+					<br />
+					<table border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_5a }} </td>
+							<td> {{ form.diagnosis_5a }} </td>
+							<td> {{ form.doctor_5a }} </td>
+							<td> {{ form.hospital_name_5a }} </td>
+							<td> {{ form.lab_test_5a }} </td>
+							<td> {{ form.results_medtest_5a }} </td>
+							<td> {{ form.present_cond_5a }} </td>
+						</tr>
+					</table>
+					</div></td>
+				
+				</tr>
+					<td>
+					b. Consulted or been treated by any physician or medical practitioner?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question5b" value="Yes" id="qy5b" onClick="javascript:yesnoCheck5b();">Yes     
+						<input type="radio" name="question5b" value="No" id="qn5b" onClick="javascript:yesnoCheck5b();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q5b" style="display:none">
+					<font color="red"></font>
+					
+					<br />
+					<table border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_5b }} </td>
+							<td> {{ form.diagnosis_5b }} </td>
+							<td> {{ form.doctor_5b }} </td>
+							<td> {{ form.hospital_name_5b }} </td>
+							<td> {{ form.lab_test_5b }} </td>
+							<td> {{ form.results_medtest_5b }} </td>
+							<td> {{ form.present_cond_5b }} </td>
+						</tr>
+					</table>
+					</div></td>
+				
+				</tr>
+				<tr>
+					<td>
+					c. Had any surgical operation?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question5c" value="Yes" id="qy5c" onClick="javascript:yesnoCheck5c();">Yes     
+						<input type="radio" name="question5c" value="No" id="qn5c" onClick="javascript:yesnoCheck5c();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q5c" style="display:none">
+					<font color="red"></font>
+				
+					<br />
+					<table border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_5c }} </td>
+							<td> {{ form.diagnosis_5c }} </td>
+							<td> {{ form.doctor_5c }} </td>
+							<td> {{ form.hospital_name_5c }} </td>
+							<td> {{ form.lab_test_5c }} </td>
+							<td> {{ form.results_medtest_5c }} </td>
+							<td> {{ form.present_cond_5c }} </td>
+						</tr>
+					</table>
+					</div></td>
+				
+				</tr>
+				<tr>
+					<td>
+					d. Had any medical examination or check-up?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question5d" value="Yes" id="qy5d" onClick="javascript:yesnoCheck5d();">Yes     
+						<input type="radio" name="question5d" value="No" id="qn5d" onClick="javascript:yesnoCheck5d();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q5d" style="display:none">
+					<font color="red"></font>
+				
+					<br />
+					<table border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_5d }} </td>
+							<td> {{ form.diagnosis_5d }} </td>
+							<td> {{ form.doctor_5d }} </td>
+							<td> {{ form.hospital_name_5d }} </td>
+							<td> {{ form.lab_test_5d }} </td>
+							<td> {{ form.results_medtest_5d }} </td>
+							<td> {{ form.present_cond_5d }} </td>
+						</tr>
+					</table>
+					</div></td>
+				
+				</tr>
+				<tr>
+					<td>
+					6. Have you ever been confined in any Hospital,
+					Clinic, or similar institution?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						
+						<input type="radio" name="question6" value="Yes" id="qy6" onClick="javascript:yesnoCheck6();">Yes     
+						<input type="radio" name="question6" value="No" id="qn6" onClick="javascript:yesnoCheck6();">No
+						
+					</td>
+				</tr>
+				<tr>
+					
+					<td><div id="Q6" style="display:none">
+					<font color="red"></font>
+					<i>Please provide full details*</i>
+					<br /><table border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_6 }} </td>
+							<td> {{ form.diagnosis_6 }} </td>
+							<td> {{ form.doctor_6 }} </td>
+							<td> {{ form.hospital_name_6 }} </td>
+							<td> {{ form.lab_test_6 }} </td>
+							<td> {{ form.results_medtest_6 }} </td>
+							<td> {{ form.present_cond_6 }} </td>
+						</tr>
+					</table>
+					</div></td>
+				
+				</tr>
+				
+			</table>
+	</fieldset>
+</div>
+
+<script type="text/javascript">
+function yesnoCheck1() {
+    if (document.getElementById('qn1').checked) {
+        document.getElementById('Q1').style.display = 'block';
+    } else {
+        document.getElementById('Q1').style.display = 'none';
+    }
+	}
+
+function yesnoCheck2() {
+    if (document.getElementById('qn2').checked) {
+        document.getElementById('Q2').style.display = 'block';
+    } else {
+        document.getElementById('Q2').style.display = 'none';
+    }
+	}
+
+function yesnoCheck3() {
+    if (document.getElementById('qy3').checked) {
+        document.getElementById('Q3').style.display = 'block';
+    } else {
+        document.getElementById('Q3').style.display = 'none';
+    }
+	}
+
+function yesnoCheck4() {
+    if (document.getElementById('qy4').checked) {
+        document.getElementById('Q4').style.display = 'block';
+    } else {
+        document.getElementById('Q4').style.display = 'none';
+    }
+	}
+
+function yesnoCheck5a() {
+    if (document.getElementById('qy5a').checked) {
+        document.getElementById('Q5a').style.display = 'block';
+    } else {
+        document.getElementById('Q5a').style.display = 'none';
+    }
+	}
+
+function yesnoCheck5b() {
+    if (document.getElementById('qy5b').checked) {
+        document.getElementById('Q5b').style.display = 'block';
+    } else {
+        document.getElementById('Q5b').style.display = 'none';
+    }
+	}
+
+function yesnoCheck5c() {
+    if (document.getElementById('qy5c').checked) {
+        document.getElementById('Q5c').style.display = 'block';
+    } else {
+        document.getElementById('Q5c').style.display = 'none';
+    }
+	}
+
+function yesnoCheck5d() {
+    if (document.getElementById('qy5d').checked) {
+        document.getElementById('Q5d').style.display = 'block';
+    } else {
+        document.getElementById('Q5d').style.display = 'none';
+    }
+	}
+	
+function yesnoCheck6() {
+    if (document.getElementById('qy6').checked) {
+        document.getElementById('Q6').style.display = 'block';
+    } else {
+        document.getElementById('Q6').style.display = 'none';
+    }
+	}
+	
+	
+function reasonCheck() {
+    if (document.getElementById('reason').checked) {
+        document.getElementById('Q6').style.display = 'block';
+    } else {
+        document.getElementById('Q6').style.display = 'none';
+    }
+	}
+
+
+</script>
+
+	<input type="submit" value="Cancel" />
+	<input type="submit" value="Done" />
+<!-- <table>{{ form.as_p }}</table>
+ <input type="submit" value="Add" />-->
+
+ </form>
+
+  </div>
+ 
+{% endblock %}
+
+</body>
+</html>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

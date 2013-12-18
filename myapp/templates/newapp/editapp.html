@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  
+  <script>
+  $(document).ready(function() {
+    $("#date").datepicker();
+  });
+  </script>
+</head>
+
+{% extends "newapp/cbase_sites.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard_two.css' %}" />{% endblock %}
+
+
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+{% block data_container %}
+<body>
+<div id="content">
+	
+</div>
+<div id="logos">
+	<img src="/static/admin/img/formlogos.jpg" width="1100" /> 
+</div>
+
+<form method="POST" action=""> 
+{% csrf_token %} 
+
+<div id="formpi">
+<div class="titlepi">
+<p>&nbsp;&nbsp;Personal Information</p>
+</div>	
+
+		
+		
+		<table>
+			<tr align="left">
+				<td>*Form No:</td>
+				<td>{{ form.form_no }}</td>
+			</tr>
+			<tr align="left">
+		
+				<td>*Last Name:</td>
+				<td colspan="3">{{ form.last_name }}</td>
+
+				<td>*First Name:</td>
+				<td colspan="3">{{ form.first_name }}</td>
+
+				<td colspan="2">*Middle Name:</td>
+				<td colspan="3">{{ form.middle_name }}</td>
+
+			</tr>
+			<tr align="left">
+				<td>*Birthdate</td>
+				<td colspan="1"><input id="date" name="birth_date" value='{{form.birth_date}}'>{{ form.birth_date }}</td>
+
+				<td>*Birthplace:</td>
+				<td >{{ form.birth_place }}</td>
+				<td>*Age:</td>
+				<td>{{ form.page }}</td>
+				<td>*Sex:</td>
+				<td>{{ form.sex }}</td>
+				<td colspan="2">*Civil Status:</td>
+				<td>{{ form.civil_status }}</td>
+
+			</tr>
+			<tr align="left">
+				<td colspan="2">*Residence Address:</td>
+
+				<td colspan="6">{{ form.residence_address }}</td>
+
+				<td colspan="2">*Nationality</td>
+
+				<td colspan="3"><input type="text" name='nationality' style="background: #C0C0C0" value="Filipino" readonly></td>
+	
+			</tr>
+			<tr align="left">
+				<td>*Contact Number(s):</td>
+				<td colspan="3">{{ form.contact_number }}</td>
+
+				<td>*SSS/GSIS Number:</td>
+				<td colspan="3">{{ form.sss_gsis }}</td>
+	
+				<td colspan="2">*Tax Identification Number:</td>
+				<td colspan="3">{{ form.tin }}</td>
+	
+			</tr>
+			<tr align="left">
+				<td colspan="2">*Name of Employer/Association/Creditor:</td>
+
+				<td colspan="6">{{ form.name_eac }}</td>
+
+				<td colspan="2">*Occupation/Position:</td>
+				<td colspan="3">{{ form.occup_position }}</td>
+
+		
+				
+			</tr>
+			<tr align="left">
+				<td colspan="2">*Date of Employment/Membership/Loan Appoval:</td>
+
+				<td colspan="2"> {{ form.date_empmem }}</td>
+
+				<td> *Term of Loan (If Group Credit Life): </td>
+				<td> {{ form.term_loan }} </td>
+				<td>  {{ form.term_loan_d }}</td>
+				<td>*Amount of Loan (If Group Credit Life):</td>
+				<td></td>
+				<td>{{ form.amount_loan }}</td>
+				<td> {{ form.currency }}</td>
+				<td> </td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			</table>
+
+</div>
+<div id="formsh">	
+<div class="titlepi">
+<p>&nbsp;&nbsp;Statement of Health</p>
+</div>	
+
+			<table>
+			<tr align="left">
+				<td>*Reason for Submission of Statement of Health:</td>
+				<td colspan="2">{{ form.reason }}</td>
+				<td>*Height:</td>
+				<td>{{ form.height }} ft</td>
+			</tr>
+			<tr align="left">
+				<td colspan="2">*Please Specify:</td>
+				<td>{{ form.reason_details }}</td>
+				<td>*Weight:</td>
+				<td>{{ form.weight }} kg</td>
+			</tr>
+		</table>
+
+</div>
+<div id="formghi">
+<div class="titleq">
+<p>&nbsp;&nbsp;General Health Information</p>
+</div>		
+
+			<table>
+				<tr>
+					<td>
+					1. Are you actively at work performing your daily normal
+					chores of life on a regular, full-time basis?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+					
+					{{ form.question1 }}
+					
+				<!--		<ul>
+							<li><input type="radio" name="question1" value="Yes">Yes</li>
+							<li><input type="radio" name="question1" value="No">No</li>
+						</ul> -->
+					</td>
+				</tr>
+				<tr>
+					<td>{{ form.detail_q1 }}</td>	
+				</tr>
+				<tr>
+					<td>
+					2. Are you in good health, both physically and mentally?
+					</td>
+					
+				<tr>
+					<td>
+					{{ form.question2 }}
+					</td>
+				</tr>
+				<tr>
+					<td>{{ form.detail_q2 }}</td>	
+				</tr>
+			</table>
+
+</div>
+<div id="formphi">
+<div class="titleq">
+<p>&nbsp;&nbsp;Personal Health Information</p>
+</div>		
+
+			<table>
+				<tr>
+					<td>
+					3. Have you ever had any policy or application for Life,
+					Accident, Disability, Dreaded Diseases, Sickness, or
+					Health Insurance that has been declined, posyponed, modified,
+					rated, cancelled or rejected; or was refused for renewal?
+					</td>
+				
+				</tr>
+				<tr>
+					<td>
+						{{ form.question3 }}
+					</td>
+				</tr>
+				<br />
+					<table width="290" border="2">
+						<tr>
+							<td>Date of Application</td>
+							<td>Insurance Company</td>
+							<td>Policy Amount</td>
+							<td>Reason for Refusal/Postponement/Rating</td>
+						</tr>
+						<tr>
+							<td> {{ form.date_apply }} </td>
+							<td> {{ form.insurance_comp }} </td>
+							<td> {{ form.policy_amt }} </td>
+							<td> {{ form.reason_rpr }} </td>
+						</tr>
+					</table>
+				<tr>
+					<td>
+					4. Do you have any deformity, impairment of sight, hearing,
+					or loss of any body part of other physical defects?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						{{ form.question4 }}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						{{ form.detail_q4 }}
+					</td>
+				</tr>
+				<br />
+				<tr>
+					<td>
+					5. Have you during the past 5 years:
+					</td>
+				</tr>
+				<tr>
+					<td>
+					a. Had any injury, ailment, or disease?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						{{ form.question5a }}
+					</td>
+				</tr>
+				<table width="100" border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_5a }} </td>
+							<td> {{ form.diagnosis_5a }} </td>
+							<td> {{ form.doctor_5a }} </td>
+							<td> {{ form.hospital_name_5a }} </td>
+							<td> {{ form.lab_test_5a }} </td>
+							<td> {{ form.results_medtest_5a }} </td>
+							<td> {{ form.present_cond_5a }} </td>
+						</tr>
+					</table>
+				<tr>
+					<td>
+					b. Consulted or been treated by any physician or medical practitioner?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						{{ form.question5b }}
+					</td>
+				</tr>
+				<table width="100" border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_5b }} </td>
+							<td> {{ form.diagnosis_5b }} </td>
+							<td> {{ form.doctor_5b }} </td>
+							<td> {{ form.hospital_name_5b }} </td>
+							<td> {{ form.lab_test_5b }} </td>
+							<td> {{ form.results_medtest_5b }} </td>
+							<td> {{ form.present_cond_5b }} </td>
+						</tr>
+					</table>
+				<tr>
+					<td>
+					c. Had any surgical operation?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						{{ form.question5c }}
+					</td>
+				</tr>
+				<table width="100" border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_5c }} </td>
+							<td> {{ form.diagnosis_5c }} </td>
+							<td> {{ form.doctor_5c }} </td>
+							<td> {{ form.hospital_name_5c }} </td>
+							<td> {{ form.lab_test_5c }} </td>
+							<td> {{ form.results_medtest_5c }} </td>
+							<td> {{ form.present_cond_5c }} </td>
+						</tr>
+					</table>
+				<tr>
+					<td>
+					d. Had any medical examination or check-up?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						{{ form.question5d }}
+					</td>
+				</tr>
+				<table width="100" border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_5d }} </td>
+							<td> {{ form.diagnosis_5d }} </td>
+							<td> {{ form.doctor_5d }} </td>
+							<td> {{ form.hospital_name_5d }} </td>
+							<td> {{ form.lab_test_5d }} </td>
+							<td> {{ form.results_medtest_5d }} </td>
+							<td> {{ form.present_cond_5d }} </td>
+						</tr>
+					</table>
+				<tr>
+					<td>
+					6. Have you ever been confined in any Hospital,
+					Clinic, or similar institution?
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						{{ form.question6 }}
+					</td>
+				</tr>
+				<table width="100" border="2">
+						<tr>
+							<th>Date of Occurence(mm/dd/yyyy)</th>
+							<th>Diagnosis/Reason</th>
+							<th>Doctor</th>
+							<th>Name of Hospital/Clinic/Address</th>
+							<th>Medical text(s) / Lab Test(s)</th>
+							<th>Results of Medical Tests / Medication Prescribed</th>
+							<th>Present Condition / Other Remarks</th>
+						</tr>
+						<tr>
+							<td> {{ form.date_occur_6 }} </td>
+							<td> {{ form.diagnosis_6 }} </td>
+							<td> {{ form.doctor_6 }} </td>
+							<td> {{ form.hospital_name_6 }} </td>
+							<td> {{ form.lab_test_6 }} </td>
+							<td> {{ form.results_medtest_6 }} </td>
+							<td> {{ form.present_cond_6 }} </td>
+						</tr>
+				<input type="hidden" name="detail_q3" value="na" />
+				<input type="hidden" name="detail_q5a" value="na" />
+				<input type="hidden" name="detail_q5b" value="na" />
+				<input type="hidden" name="detail_q5c" value="na" />
+				<input type="hidden" name="detail_q5d" value="na" />
+				<input type="hidden" name="detail_q6" value="na" />
+					</table>
+			</table>
+		<div id="buttonposi">
+			<input type="submit" value="Cancel"/>
+			<input type="submit" value="Done" />
+		</div>
+</div>
+
+<!-- <table>{{ form.as_p }}</table>
+ <input type="submit" value="Add" />-->
+
+ </form>
+
+  </div>
+{% endblock %}
+</body>
+</html>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

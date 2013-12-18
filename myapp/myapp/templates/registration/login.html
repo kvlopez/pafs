@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Pioneer Application Form System<title/>
+<!--	<script type="text/javascript" charset="utf-8" src="web/js/jquery.js"></script> -->
+<!--	<script type="text/javascript" charset="utf-8" src="/web/js/main/login.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="/web/css/login.css">
+<!--	<script type="text/javascript" src="/web/js/notty/jquery.notty.js"></script> -->
+<!--	<link rel="stylesheet" type="text/css" href="/web/css/jquery.notty.css"> -->
+<!-- {% if messages %}
+    {% for message in messages %}
+      <script type="text/javascript">
+        $( function(){
+          $.notty({
+              content: '{{ message }}',
+              timeout: 6000,
+          });
+        });
+      </script>
+    {% endfor %}
+  {% endif %} -->
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<img src="web/images/pioneer_logo.png" width="300" id="logo" />
+		</div>
+		
+		<div id="content">
+			<br clear="all">
+			<div id="content-box">
+				<div id="content-header">
+				PAFS LOGIN
+				</div>
+				<div id="content-form">
+					<form method=post action="{{ app_path }}">
+					{% csrf_token %}
+						{% if form.errors %}
+							<div class="errornote">
+								Invalid username and password combination.
+							</div>
+						{% endif %}
+						Username: <br />
+						{{ form.username }}<br />
+						Passwords:<br />
+						{{ form.password }}<br /><br />
+						<input type="submit" class="button" value="Log In">&nbsp;
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		
+</html>

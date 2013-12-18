@@ -1,0 +1,278 @@
+{% extends "newapp/cbase_sites.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard_two.css' %}" />{% endblock %}
+
+
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+{% block data_container %}
+
+<div id="content">
+	<img src="/static/admin/img/formlogos.jpg" width="1500" /> 
+	<div id="branding">
+</div>
+</div>
+
+
+<form method="POST" action=""> 
+{% csrf_token %} 
+
+<div id="formpi">
+<div class="titlepi">
+<p>Personal Information</p>
+</div>	
+	<fieldset>
+		
+		
+		<table>
+			<tr align="left">
+				<th>*Form No:</th>
+				<td>{{ form.form_no }}</td>
+				<th>*Last Name:</th>
+				<td>{{ form.last_name }}</td>
+				<th>*First Name:</th>
+				<td>{{ form.first_name }}</td>
+				<th>*Middle Name:</th>
+				<td>{{ form.middle_name }}</td>
+			</tr>
+			<tr align="left">
+				<th>*Birthdate</th>
+				<td>{{ form.birth_date }}</td>
+				<th>*Birthplace:</th>
+				<td>{{ form.birth_place }}</td>
+				<th>*Sex:</th>
+				<td>{{ form.sex }}</td>
+				<th>*Civil Status:</th>
+				<td>{{ form.civil_status }}</td>
+			</tr>
+			<tr align="left">
+				<th>*Residence Address:</th>
+				<td colspan="2">{{ form.residence_address }}</td>
+				<th>*Nationality:</th>
+				<td>{{ form.nationality }}</td>
+			</tr>
+			<tr align="left">
+				<th>*Contact Number(s):</th>
+				<td>{{ form.contact_number }}</td>
+				<th>*SSS/GSIS Number:</th>
+				<td>{{ form.sss_gsis }}</td>
+				<th>*Tax Identification Number:</th>
+				<td>{{ form.tin }}</td>
+			</tr>
+			<tr align="left">
+				<th>*Name of Employer/Association/Creditor:</th>
+				<td>{{ form.name_eac }}</td>
+				<th>*Occupation/Position:</th>
+				<td>{{ form.occup_position }}</td>
+				<th>*Age</th>
+				<td>{{ form.page }}</td>
+			</tr>
+			<tr align="left">
+				<th>*Date of Employment/Membership/Loan Appoval:</th>
+				<td>{{ form.date_empmem }}</td>
+				<th>*Term of Loan (If Group Credit Life):</th>
+				<td>{{ form.term_loan }}</td>
+				<th>*Amount of Loan (If Group Credit Life):</th>
+				<td>{{ form.amount_loan }}</td>
+			</tr>
+			</table>
+	</fieldset>
+</div>
+<div id="formsh">	
+<div class="titlepi">
+<p>Statement of Health</p>
+</div>	
+	<fieldset>
+			<table>
+			<tr align="left">
+				<th>*Reason for Submission of Statement of Health:</th>
+				<td colspan="2">{{ form.reason }}</td>
+				<th>*Height:</th>
+				<td>{{ form.height }}</td>
+			</tr>
+			<tr align="left">
+				<th colspan="2">*Please Specify:</th>
+				<td>{{ form.reason_details }}</td>
+				<th>*Weight:</th>
+				<td>{{ form.weight }}</td>
+			</tr>
+		</table>
+	</fieldset>
+</div>
+<div id="formghi">
+<div class="titleq">
+<p>General Health Information</p>
+</div>		
+	<fieldset>
+			<table>
+				<tr>
+					<td>
+					1. Are you actively at work performing your daily normal
+					chores of life on a regular, full-time basis?
+					</td>
+					<td>{{ form.question1 }}</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><input type="radio" name="question1" value="Yes">Yes</li>
+							<li><input type="radio" name="question1" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					2. Are you in good health, both physically and mentally?
+					</td>
+					<td>{{ form.question2 }}</td>
+				<tr>
+					<td>
+					<ul>
+							<li><input type="radio" name="question2" value="Yes">Yes</li>
+							<li><input type="radio" name="question2" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+	</fieldset>
+</div>
+<div id="formphi">
+<div class="titleq">
+<p>Personal Health Information</p>
+</div>		
+	<fieldset>
+			<table>
+				<tr>
+					<td>
+					3. Have you ever had any policy or application for Life,
+					Accident, Disability, Dreaded Diseases, Sickness, or
+					Health Insurance that has been declined, posyponed, modified,
+					rated, cancelled or rejected; or was refused for renewal?
+					</td>
+					<td>{{ form.question3 }}</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><input type="radio" name="question3" value="Yes">Yes</li>
+							<li><input type="radio" name="question3" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					4. Do you have any deformity, impairment of sight, hearing,
+					or loss of any body part of other physical defects?
+					</td>
+					<td>{{ form.question4 }}</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><input type="radio" name="question4" value="Yes">Yes</li>
+							<li><input type="radio" name="question4" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					5. Have you during the past 5 years:
+					</td>
+				</tr>
+				<tr>
+					<td>
+					a. Had any injury, ailment, or disease?
+					</td>
+					<td>{{ form.question5a }}</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><input type="radio" name="question5a" value="Yes">Yes</li>
+							<li><input type="radio" name="question5a" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					b. Consulted or been treated by any physician or medical practitioner?
+					</td>
+					<td>{{ form.question5b }}</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><input type="radio" name="question5b" value="Yes">Yes</li>
+							<li><input type="radio" name="question5b" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					c. Had any surgical operation?
+					</td>
+					<td>{{ form.question5c }}</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><input type="radio" name="question5c" value="Yes">Yes</li>
+							<li><input type="radio" name="question5c" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					d. Had any medical examination or check-up?
+					</td>
+					<td>{{ form.question5d }}</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><input type="radio" name="question5d" value="Yes">Yes</li>
+							<li><input type="radio" name="question5d" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					6. Have you ever been confined in any Hospital,
+					Clinic, or similar institution?
+					</td>
+					<td>{{ form.question6 }}</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><input type="radio" name="question6" value="Yes">Yes</li>
+							<li><input type="radio" name="question6" value="No">No</li>
+						</ul>
+					</td>
+				</tr>
+				
+			</table>
+	</fieldset>
+</div>
+	<input type="submit" value="Cancel" id="id_submit"/>
+	<input type="submit" value="Done" />
+<!-- <table>{{ form.as_p }}</table>
+ <input type="submit" value="Add" />-->
+
+ </form>
+
+  </div>
+{% endblock %}
+</body>
+</html>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

@@ -1,0 +1,94 @@
+<html>
+<body>
+
+{% extends "newapp/cbase_sites.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard_two.css" %}" />{% endblock %}
+
+
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+
+
+<div id="content">
+	<img src="/static/admin/img/pioneerlogo.png" width="500" /> 
+	<div id="branding">
+<h1>Individual Application and Statement of Health for Group Insurance</h1>
+</div>
+</div>
+
+
+<form method="POST">{% csrf_token %}
+
+<div id="formpi">
+<div class="titlepi">
+<p>Search</p>
+</div>	
+<div id="searchtable">
+		<table>
+			<tr align="left">
+				<th>Form No</th>
+				<td>{{ form.form_no }}</td>
+			</tr>
+			<tr align="left">
+				<th>Last Name</th>
+				<td>{{ form.last_name }}</td>
+			</tr>
+			<tr align="left">
+				<th>First Name</th>
+				<td>{{ form.first_name }}</td>
+			</tr>
+				<tr align="left">
+				<th>Middle Name</th>
+				<td>{{ form.first_name }}</td>
+			</tr>
+			
+			</table>
+				<input type="submit" value="Search" id="id_submit"/>
+</div>
+
+
+</div>
+
+
+	
+</form>	
+<div id="formpi">
+<div class="titlepi">
+<p>Result</p>
+</div>	
+		<table>
+			<tr>
+				<th>Form No</th>
+				<th>Last Name</th>
+				<th>First Name</th>
+				<th>Middle Name</th>
+			</tr>
+			<tr>
+				<td>Form No result here</td>
+				<td>Last Name result here</td>
+				<td>First Name result here</td>
+				<td>Middle Name result here</td>
+			</tr>
+		</table>
+
+	<input type="submit" value="Back to Home" id="id_submit" onClick="document.location='/iopapp/menu/'" />
+
+</div>
+
+
+  </div>
+</form> 
+</body>
+</html>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

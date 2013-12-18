@@ -1,0 +1,211 @@
+<html>
+<body>
+
+{% extends "newapp/vbase_sites.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard_two.css' %}" />{% endblock %}
+
+
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+
+
+<div id="content">
+
+
+</div>
+
+<div id="logos">
+	<img src="/static/admin/img/formlogos.jpg" width="1100" /> 
+ </div>
+
+<form action="" method="POST">
+
+<h3>Application Successfully Submitted!</h3>
+
+<div id="printbutton">
+<a class="button" href="#"><span>Print Form</span></a>
+</div>
+
+<div id="formpi">
+	<div class="titlepi">
+		<p>&nbsp;Personal Information</p>
+	</div>	
+
+		<table>
+			<tr>
+				<th><font color="blue">&nbsp;Form No</font></th>
+				<td><font color="blue"><b>&nbsp;{{ appform.form_no }}</b></font></td>
+			</tr>
+			<tr>
+				<th>&nbsp;Last Name</th>
+				<td>&nbsp;{{ appform.last_name }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;First Name</th>
+				<td>&nbsp;{{ appform.first_name }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Middle Name</th>
+				<td>&nbsp;{{ appform.middle_name }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Birthdate</th>
+				<td>&nbsp;{{ appform.birth_date }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Age</th>
+				<td>&nbsp;{{ appform.page }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Birthplace</th>
+				<td>&nbsp;{{ appform.birth_place }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Sex</th>
+				<td>&nbsp;{{ appform.sex }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Civil Status</th>
+				<td>&nbsp;{{ appform.civil_status }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Residence Address</th>
+				<td>&nbsp;{{ appform.residence_address }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Nationality</th>
+				<td>&nbsp;{{ appform.nationality }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Contact Number(s)</th>
+				<td>&nbsp;{{ appform.contact_number }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;SSS/GSIS Number</th>
+				<td>&nbsp;{{ appform.sss_gsis }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Tax Identification Number(TIN)</th>
+				<td>&nbsp;{{ appform.tin }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Name of Employer/Association/Creditor</th>
+				<td>&nbsp;{{ appform.name_eac }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Occupation/Position</th>
+				<td>&nbsp;{{ appform.occup_position }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Date of Employment/Membership/Loan Approval</th>
+				<td>&nbsp;{{ appform.date_empmem }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Term of Loan (If Group Credit Life)</th>
+				<td>&nbsp;{{ appform.term_loan }} {{ appform.term_loan_d }} (s)</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Amount of Load (If Group Credit Life)</th>
+				<td>&nbsp;{{ appform.amount_loan }} {{ appform.currency }}</td>
+			</tr>
+		
+	
+		</table>
+	<div class="titlepi">
+		<p>&nbsp;Statement of Health</p>
+	</div>
+		<table>
+			<tr align="left">
+				<th>&nbsp;Reason for Submission of Statement of Health</th>
+				<td>&nbsp;{{ appform.reason }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Height</th>
+				<td>&nbsp;{{ appform.height }} ft</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;Weight</th>
+				<td>&nbsp;{{ appform.weight }} kg</td>
+			</tr>
+		</table>
+	<div class="titleq">
+		<p>&nbsp;General Health Information</p>
+	</div>
+		<table>
+			<tr align="left">
+				<th>&nbsp;1. Are you actively at work performing your daily normal
+					chores of life on a regular, full-time basis?</th>
+				<td>&nbsp;{{ appform.question1 }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;2. Are you in good health, both physically and mentally?</th>
+				<td>&nbsp;{{ appform.question2 }}</td>
+			</tr>
+		</table>
+	<div class="titleq">
+		<p>&nbsp;Personal Health Information</p>
+	</div>
+		<table>
+			<tr align="left">
+				<th>&nbsp;3. Have you ever had any policy or application for Life,
+					Accident, Disability, Dreaded Diseases, Sickness, or
+					Health Insurance that has been declined, posyponed, modified,
+					rated, cancelled or rejected; or was refused for renewal?</th>
+				<td>&nbsp;{{ appform.question3 }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;4. Do you have any deformity, impairment of sight, hearing,
+					or loss of any body part of other physical defects?</th>
+				<td>&nbsp;{{ appform.question4 }}</td>
+			</tr>
+			<tr>
+				<th>
+					&nbsp;5. Have you during the past 5 years:
+				</th>
+				<td></td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;a. Had any injury, ailment, or disease?</th>
+				<td>&nbsp;{{ appform.question5a }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;b. Consulted or been treated by any physician or medical practitioner?</th>
+				<td>&nbsp;{{ appform.question5b }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;c. Had any surgical operation?</th>
+				<td>&nbsp;{{ appform.question5c }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;d. Had any medical examination or check-up?</th>
+				<td>&nbsp;{{ appform.question5d }}</td>
+			</tr>
+			<tr align="left">
+				<th>&nbsp;6. Have you ever been confined in any Hospital,
+					Clinic, or similar institution?</th>
+				<td>&nbsp;{{ appform.question6 }}</td>
+			</tr>
+		</table>
+
+		</div>	
+
+</div>
+</form>	
+
+  </div>
+</form> 
+{% csrf_token %}
+</body>
+</html>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}
